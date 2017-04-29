@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">كوووورة</string>
+    <string name="title_activity_main">كوووورة</string>
+    <string name="app_description">كوووورة، جداول المباريات، نتائج على المباشر و أخبار الرياضة، كل ما يهمك في مكان واحد</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

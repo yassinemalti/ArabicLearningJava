@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/groupeprincipal" android:checkableBehavior="single">
+        <item
+            android:id="@+id/maintenant"
+            android:icon="@drawable/maintenant"
+            android:title="مباريات الآن" />
+        <item
+            android:id="@+id/aujourdhui"
+            android:icon="@drawable/aujourdhui"
+            android:title="مباريات اليوم" />
+        <item
+            android:id="@+id/demain"
+            android:icon="@drawable/demain"
+            android:title="مباريات الغد" />
+        <item
+            android:id="@+id/hier"
+            android:icon="@drawable/hier"
+            android:title="مباريات أمس" />
+        <item
+            android:id="@+id/actualites"
+            android:icon="@drawable/actualites"
+            android:title="أخبار الرياضة" />
+        <item
+            android:id="@+id/liens"
+            android:icon="@drawable/liens"
+            android:title="روابط اليوم" />
+    </group>
+
+    <group android:id="@+id/groupesecondaire" >
+        <group>
+            <item
+                android:id="@+id/partager"
+                android:icon="@drawable/partager"
+                android:title="شارك التطبيق" />
+        </group>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/apropos"
+                android:icon="@drawable/apropos"
+                android:title="بخصوص التطبيق" />
+        </group>
+    </group>
+
+</menu>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "519227231058",
+    "firebase_url": "https://arabic-learning-java.firebaseio.com",
+    "project_id": "arabic-learning-java",
+    "storage_bucket": "arabic-learning-java.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519227231058:android:05e380b7cad8fbc3",
+        "android_client_info": {
+          "package_name": "com.wordpress.yassinemalti.arabiclearningjava"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519227231058-nihnka7ed64dn72265fq2circs2hlj2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_r31e0ZsPunnyLRtVM0XzEO2S65GQ19M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
