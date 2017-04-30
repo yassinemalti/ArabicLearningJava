@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.wordpress.yassinemalti.kooora.activity.PrincipaleActivity"
+    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.PrincipaleActivity"
     tools:showIn="@layout/app_bar_main">
 
     <FrameLayout

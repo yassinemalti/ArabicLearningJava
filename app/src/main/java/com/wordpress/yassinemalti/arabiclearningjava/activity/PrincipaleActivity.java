@@ -42,86 +42,11 @@ public class PrincipaleActivity extends AppCompatActivity
                     LiensFragment.OnFragmentInteractionListener,
                     AproposFragment.OnFragmentInteractionListener{
 
-    SettingSQLiteDatabase mySettingSQLiteDatabase;
-    private FirebaseRemoteConfig remoteConfig;
     private static final String TAG = "PrincipaleActivity";
 
     private boolean viewIsAtHome;
     boolean doubleBackToExitPressedOnce = false;
     private int currentViewID;
-
-    private static String last_update_date = "13/04/2017 10:33";
-    private static String maintenant_page_url = "http://m.kooora.com/?region=-1&area=6";
-    private static String aujourdhui_page_url = "http://m.kooora.com/?region=-1&area=0";
-    private static String demain_page_url = "http://m.kooora.com/?region=-4";
-    private static String hier_page_url = "http://m.kooora.com/?region=-3";
-    private static String actualites_page_url = "http://m.kooora.com/?n=0&o=n";
-    private static String liens_page_url = "http://m.kooora.com/?n=0&o=v";
-    private static String apropos_page_url = "http://yassinemalti.wordpress.com/";
-
-    private static String lien1_url = "http://www.kooora.com/";
-    private static String lien2_url = "http://www.kooora.com/";
-    private static String lien3_url = "http://www.kooora.com/";
-    private static String lien4_url = "http://www.kooora.com/";
-    private static String lien5_url = "http://www.kooora.com/";
-
-    public static String getmaintenant_page_url() {
-        return maintenant_page_url;
-    }
-    public static String getaujourdhui_page_url() {
-        return aujourdhui_page_url;
-    }
-    public static String getdemain_page_url() {
-        return demain_page_url;
-    }
-    public static String gethier_page_url() {
-        return hier_page_url;
-    }
-    public static String getactualites_page_url() {
-        return actualites_page_url;
-    }
-    public static String getliens_page_url() {
-        return liens_page_url;
-    }
-    public static String getapropos_page_url() {
-        return apropos_page_url;
-    }
-
-    public static String getlien1_url() {
-        return lien1_url;
-    }
-    public static String getlien2_url() {
-        return lien2_url;
-    }
-    public static String getlien3_url() {
-        return lien3_url;
-    }
-    public static String getlien4_url() {
-        return lien4_url;
-    }
-    public static String getlien5_url() {
-        return lien5_url;
-    }
-
-    public static Date convertStringToDate (String stringDate) {
-
-        String dateString = stringDate;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date convertedDate = new Date();
-        try {
-            convertedDate = dateFormat.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        Log.d(TAG, "");
-        Log.d(TAG, "convertStringToDate");
-        Log.d(TAG, convertedDate.toString());
-        Log.d(TAG, "");
-
-        return convertedDate;
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,19 +65,6 @@ public class PrincipaleActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        mySettingSQLiteDatabase = new SettingSQLiteDatabase(this);
-
-        FirebaseRemoteConfigSettings remoteConfigSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
-                .build();
-
-        remoteConfig = FirebaseRemoteConfig.getInstance();
-        remoteConfig.setConfigSettings(remoteConfigSettings);
-
-        subscribeToPushService();
-        localConfigurationUpdate();
-        firebaseConfigurationUpdate();
 
         navigationView.setCheckedItem(R.id.maintenant);
         displayView(R.id.maintenant);
@@ -297,122 +209,4 @@ public class PrincipaleActivity extends AppCompatActivity
 
     }
 
-    private void subscribeToPushService() {
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
-    }
-
-    private void localConfigurationUpdate() {
-
-        String myCurrentValue;
-
-        myCurrentValue = mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-        if(myCurrentValue.length() == 0) {
-
-            // La base de données ne contient pas de données
-            // Supposons que les paramètres chargés en variables locales sont les plus récentes
-            // Inserer les paramètres en varibales lcoales dans la base de données
-
-            Log.e(TAG, "localConfigurationUpdate, dataInsertParameter");
-            mySettingSQLiteDatabase.dataInsertParameter("last_update_date", last_update_date);
-            mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-
-            mySettingSQLiteDatabase.dataInsertParameter("maintenant_page_url", maintenant_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("aujourdhui_page_url", aujourdhui_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("demain_page_url", demain_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("hier_page_url", hier_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("actualites_page_url", actualites_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("liens_page_url", liens_page_url);
-            mySettingSQLiteDatabase.dataInsertParameter("apropos_page_url", apropos_page_url);
-
-            mySettingSQLiteDatabase.dataInsertParameter("lien1_url", lien1_url);
-            mySettingSQLiteDatabase.dataInsertParameter("lien2_url", lien2_url);
-            mySettingSQLiteDatabase.dataInsertParameter("lien3_url", lien3_url);
-            mySettingSQLiteDatabase.dataInsertParameter("lien4_url", lien4_url);
-            mySettingSQLiteDatabase.dataInsertParameter("lien5_url", lien5_url);
-
-        }
-        else
-
-            // La base de données contient des valeurs, elle n'est pas vide
-            // Tester si les paramètres chargés en variables locales sont plus récentes que celle en base de données
-
-            if(convertStringToDate(last_update_date).after(convertStringToDate(myCurrentValue)))
-            {
-
-                // Les paramètres chargés en variables locales sont plus récentes que celle en base de données
-                // Mettre a jour les paramètres en base de données par les valeurs en variables locales
-
-                Log.e(TAG, "localConfigurationUpdate, dataUpdateParameter");
-                mySettingSQLiteDatabase.dataUpdateParameter("last_update_date",last_update_date);
-                mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-
-                mySettingSQLiteDatabase.dataUpdateParameter("maintenant_page_url",maintenant_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("aujourdhui_page_url",aujourdhui_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("demain_page_url",demain_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("hier_page_url",hier_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("actualites_page_url",actualites_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("liens_page_url",liens_page_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("apropos_page_url",apropos_page_url);
-
-                mySettingSQLiteDatabase.dataUpdateParameter("lien1_url",lien1_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("lien2_url",lien2_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("lien3_url",lien3_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("lien4_url",lien4_url);
-                mySettingSQLiteDatabase.dataUpdateParameter("lien5_url",lien5_url);
-
-            }
-    }
-
-    private void firebaseConfigurationUpdate() {
-
-        long cacheExpiration = 3600;
-        if (remoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
-            cacheExpiration = 1;
-        }
-
-        remoteConfig.fetch(cacheExpiration)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-
-                            String myCurrentValue;
-
-                            myCurrentValue = mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-                            last_update_date = remoteConfig.getString("last_update_date");
-                            if(myCurrentValue.length() == 0) {
-                                mySettingSQLiteDatabase.dataInsertParameter("last_update_date", last_update_date);
-                                mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-                            }
-                            else
-                                if(convertStringToDate(last_update_date).after(convertStringToDate(myCurrentValue)))
-                                {
-                                    mySettingSQLiteDatabase.dataUpdateParameter("last_update_date",last_update_date);
-                                    mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-                                }
-
-                            mySettingSQLiteDatabase.dataReadParameter("last_update_date");
-
-                            maintenant_page_url = remoteConfig.getString("maintenant_page_url");
-                            aujourdhui_page_url = remoteConfig.getString("aujourdhui_page_url");
-                            demain_page_url = remoteConfig.getString("demain_page_url");
-                            hier_page_url = remoteConfig.getString("hier_page_url");
-                            actualites_page_url = remoteConfig.getString("actualites_page_url");
-                            liens_page_url = remoteConfig.getString("liens_page_url");
-                            apropos_page_url = remoteConfig.getString("apropos_page_url");
-
-                            lien1_url = remoteConfig.getString("lien1_url");
-                            lien2_url = remoteConfig.getString("lien2_url");
-                            lien3_url = remoteConfig.getString("lien3_url");
-                            lien4_url = remoteConfig.getString("lien4_url");
-                            lien5_url = remoteConfig.getString("lien5_url");
-
-                            remoteConfig.activateFetched();
-
-                        } else {
-                            Log.e(TAG, "Fetch failed.");
-                        }
-                    }
-                });
-    }
 }
