@@ -11,11 +11,15 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
 public class ChapitreTroisFragment extends Fragment {
+
+    PDFView pdfView;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -54,19 +58,13 @@ public class ChapitreTroisFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_trois, container, false);
-        NativeExpressAdView adBanner_demain = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_demain);
-        AdRequest request_demain = new AdRequest.Builder().build();
-        adBanner_demain.loadAd(request_demain);
+        NativeExpressAdView adBanner_chapitre_trois =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_trois);
+        AdRequest request_chapitre_trois = new AdRequest.Builder().build();
+        adBanner_chapitre_trois.loadAd(request_chapitre_trois);
 
-        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_demain_webview);
-        myWebView.loadUrl("http://m.kooora.com/?region=-4");
-
-        // Enable Javascript
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        // Force links and redirects to open in the WebView instead of in a browser
-        myWebView.setWebViewClient(new WebViewClient());
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_trois_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
 
         return rootView;
     }

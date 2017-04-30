@@ -11,11 +11,15 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
 public class ChapitreSixFragment extends Fragment {
+
+    PDFView pdfView;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -54,9 +58,13 @@ public class ChapitreSixFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_six, container, false);
-        NativeExpressAdView adBanner_liens = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_liens);
-        AdRequest request_liens = new AdRequest.Builder().build();
-        adBanner_liens.loadAd(request_liens);
+        NativeExpressAdView adBanner_chapitre_six =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_six);
+        AdRequest request_chapitre_six = new AdRequest.Builder().build();
+        adBanner_chapitre_six.loadAd(request_chapitre_six);
+
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_six_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
 
         return rootView;
     }

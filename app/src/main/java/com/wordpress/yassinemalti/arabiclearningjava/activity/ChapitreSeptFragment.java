@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
@@ -21,6 +22,9 @@ import com.wordpress.yassinemalti.arabiclearningjava.R;
  * create an instance of this fragment.
  */
 public class ChapitreSeptFragment extends Fragment {
+
+    PDFView pdfView;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,9 +72,13 @@ public class ChapitreSeptFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_sept, container, false);
-        NativeExpressAdView adBanner_liens = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_liens);
-        AdRequest request_liens = new AdRequest.Builder().build();
-        adBanner_liens.loadAd(request_liens);
+        NativeExpressAdView adBanner_chapitre_sept =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_sept);
+        AdRequest request_chapitre_sept = new AdRequest.Builder().build();
+        adBanner_chapitre_sept.loadAd(request_chapitre_sept);
+
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_sept_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
 
         return rootView;
     }

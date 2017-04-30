@@ -38,7 +38,7 @@
         android:layout_gravity="bottom|center_horizontal">
 
         <com.google.android.gms.ads.NativeExpressAdView
-            android:id="@+id/adBanner_maintenant"
+            android:id="@+id/adBanner_chapitre_un"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             ads:adUnitId="ca-app-pub-2326345806005611/1707891289"

@@ -16,8 +16,6 @@ import com.wordpress.yassinemalti.arabiclearningjava.R;
 public class ChapitreUnFragment extends Fragment {
 
     PDFView pdfView;
-    private static final String TAG = "MaintenantFragment";
-
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -55,11 +53,14 @@ public class ChapitreUnFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_un, container, false);
-        NativeExpressAdView adBanner_maintenant = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_maintenant);
-        AdRequest request_maintenant = new AdRequest.Builder().build();
-        adBanner_maintenant.loadAd(request_maintenant);
-        pdfView = (PDFView) rootView.findViewById(R.id.activity_maintenant_pdfView);
+        NativeExpressAdView adBanner_chapitre_un =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_un);
+        AdRequest request_chapitre_un = new AdRequest.Builder().build();
+        adBanner_chapitre_un.loadAd(request_chapitre_un);
+
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_un_pdfView);
         pdfView.fromAsset("MyPDF.pdf").load();
+
         return rootView;
     }
 

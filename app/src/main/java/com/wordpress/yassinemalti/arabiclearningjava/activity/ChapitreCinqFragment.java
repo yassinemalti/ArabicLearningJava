@@ -11,11 +11,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
 public class ChapitreCinqFragment extends Fragment {
+
+    PDFView pdfView;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -52,20 +55,13 @@ public class ChapitreCinqFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_cinq, container, false);
-        NativeExpressAdView adBanner_actualites = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_actualites);
-        AdRequest request_actualites = new AdRequest.Builder().build();
-        adBanner_actualites.loadAd(request_actualites);
+        NativeExpressAdView adBanner_chapitre_cinq =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_cinq);
+        AdRequest request_chapitre_cinq = new AdRequest.Builder().build();
+        adBanner_chapitre_cinq.loadAd(request_chapitre_cinq);
 
-
-        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_actualites_webview);
-        myWebView.loadUrl("http://m.kooora.com/?n=0&o=n");
-
-        // Enable Javascript
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        // Force links and redirects to open in the WebView instead of in a browser
-        myWebView.setWebViewClient(new WebViewClient());
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_cinq_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
 
         return rootView;
     }

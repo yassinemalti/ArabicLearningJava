@@ -10,14 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
 public class ChapitreDeuxFragment extends Fragment {
 
-    public WebView myWebView;
-    ProgressDialog progressDialog;
+    PDFView pdfView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +57,14 @@ public class ChapitreDeuxFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_chapitre_deux, container, false);
-        NativeExpressAdView adBanner_aujourdhui = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_aujourdhui);
-        AdRequest request_aujourdhui = new AdRequest.Builder().build();
-        adBanner_aujourdhui.loadAd(request_aujourdhui);
-        myWebView = (WebView) rootView.findViewById(R.id.activity_aujourdhui_webview);
+        NativeExpressAdView adBanner_chapitre_deux =
+                (NativeExpressAdView) rootView.findViewById(R.id.adBanner_chapitre_deux);
+        AdRequest request_chapitre_deux = new AdRequest.Builder().build();
+        adBanner_chapitre_deux.loadAd(request_chapitre_deux);
+
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_deux_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
+
         return rootView;
     }
 
