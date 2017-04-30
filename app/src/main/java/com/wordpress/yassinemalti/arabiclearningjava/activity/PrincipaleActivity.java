@@ -113,37 +113,37 @@ public class PrincipaleActivity extends AppCompatActivity
         switch (viewId) {
             case R.id.un:
                 fragment = new ChapitreUnFragment();
-                title  = "مباريات الآن";
+                title  = "الفصل الأول";
                 viewIsAtHome = true;
                 break;
             case R.id.deux:
                 fragment = new ChapitreDeuxFragment();
-                title  = "مباريات اليوم";
+                title  = "الفصل الثاني";
                 viewIsAtHome = false;
                 break;
             case R.id.trois:
                 fragment = new ChapitreTroisFragment();
-                title  = "مباريات الغد";
+                title  = "الفصل الثالث";
                 viewIsAtHome = false;
                 break;
             case R.id.quatre:
                 fragment = new ChapitreQuatreFragment();
-                title  = "مباريات أمس";
+                title  = "الفصل الرابع";
                 viewIsAtHome = false;
                 break;
             case R.id.cinq:
                 fragment = new ChapitreCinqFragment();
-                title  = "أخبار الرياضة";
+                title  = "الفصل الخامس";
                 viewIsAtHome = false;
                 break;
             case R.id.six:
                 fragment = new ChapitreSixFragment();
-                title  = "روابط اليوم";
+                title  = "الفصل السادس";
                 viewIsAtHome = false;
                 break;
             case R.id.sept:
                 fragment = new ChapitreSeptFragment();
-                title  = "روابط اليوم";
+                title  = "الفصل السابع";
                 viewIsAtHome = false;
                 break;
             case R.id.partager:

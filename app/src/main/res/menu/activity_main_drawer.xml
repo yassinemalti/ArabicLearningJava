@@ -5,31 +5,31 @@
         <item
             android:id="@+id/un"
             android:icon="@drawable/un"
-            android:title="مباريات الآن" />
+            android:title="الفصل الأول" />
         <item
             android:id="@+id/deux"
             android:icon="@drawable/deux"
-            android:title="مباريات اليوم" />
+            android:title="الفصل الثاني" />
         <item
             android:id="@+id/trois"
             android:icon="@drawable/trois"
-            android:title="مباريات الغد" />
+            android:title="الفصل الثالث" />
         <item
             android:id="@+id/quatre"
             android:icon="@drawable/quatre"
-            android:title="مباريات أمس" />
+            android:title="الفصل الرابع" />
         <item
             android:id="@+id/cinq"
             android:icon="@drawable/cinq"
-            android:title="أخبار الرياضة" />
+            android:title="الفصل الخامس" />
         <item
             android:id="@+id/six"
             android:icon="@drawable/six"
-            android:title="روابط اليوم" />
+            android:title="الفصل السادس" />
         <item
             android:id="@+id/sept"
             android:icon="@drawable/sept"
-            android:title="روابط اليوم" />
+            android:title="الفصل السابع" />
     </group>
 
     <group android:id="@+id/groupesecondaire" >
