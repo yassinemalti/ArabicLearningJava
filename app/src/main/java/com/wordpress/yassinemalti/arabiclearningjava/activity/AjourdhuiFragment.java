@@ -64,7 +64,6 @@ public class AjourdhuiFragment extends Fragment {
         AdRequest request_aujourdhui = new AdRequest.Builder().build();
         adBanner_aujourdhui.loadAd(request_aujourdhui);
         myWebView = (WebView) rootView.findViewById(R.id.activity_aujourdhui_webview);
-        new LoadPage().execute();
         return rootView;
     }
 
@@ -95,36 +94,6 @@ public class AjourdhuiFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    private class LoadPage extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("جاري التحديث...");
-            progressDialog.setIndeterminate(false);
-            progressDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-
-            String aujourdhui_page_url = PrincipaleActivity.getaujourdhui_page_url();
-            myWebView.loadUrl(aujourdhui_page_url);
-            WebSettings webSettings = myWebView.getSettings();
-            webSettings.setJavaScriptEnabled(true);
-            myWebView.setWebViewClient(new WebViewClient());
-            progressDialog.dismiss();
-
-        }
     }
 
 }
