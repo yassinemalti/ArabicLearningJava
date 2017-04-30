@@ -6,33 +6,26 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.ChapitreSixFragment">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/ScrollView01"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
-        <RelativeLayout
-            android:id="@+id/RelativeLayout01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.github.barteksc.pdfviewer.PDFView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/activity_chapitre_six_pdfView" />
 
-                <com.github.barteksc.pdfviewer.PDFView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:id="@+id/activity_chapitre_six_pdfView" />
+        </LinearLayout>
 
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="280dp"
