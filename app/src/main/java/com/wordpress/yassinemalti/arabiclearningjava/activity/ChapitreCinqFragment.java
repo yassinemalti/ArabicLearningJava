@@ -15,24 +15,22 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
-public class DemainFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class ChapitreCinqFragment extends Fragment {
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public DemainFragment() {
-        // Required empty public constructor
+    public ChapitreCinqFragment() {
+
     }
 
-    public static DemainFragment newInstance(String param1, String param2) {
-        DemainFragment fragment = new DemainFragment();
+    public static ChapitreCinqFragment newInstance(String param1, String param2) {
+        ChapitreCinqFragment fragment = new ChapitreCinqFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -53,13 +51,14 @@ public class DemainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_demain, container, false);
-        NativeExpressAdView adBanner_demain = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_demain);
-        AdRequest request_demain = new AdRequest.Builder().build();
-        adBanner_demain.loadAd(request_demain);
+        View rootView = inflater.inflate(R.layout.fragment_chapitre_cinq, container, false);
+        NativeExpressAdView adBanner_actualites = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_actualites);
+        AdRequest request_actualites = new AdRequest.Builder().build();
+        adBanner_actualites.loadAd(request_actualites);
 
-        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_demain_webview);
-        myWebView.loadUrl("http://m.kooora.com/?region=-4");
+
+        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_actualites_webview);
+        myWebView.loadUrl("http://m.kooora.com/?n=0&o=n");
 
         // Enable Javascript
         WebSettings webSettings = myWebView.getSettings();
@@ -71,6 +70,7 @@ public class DemainFragment extends Fragment {
         return rootView;
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

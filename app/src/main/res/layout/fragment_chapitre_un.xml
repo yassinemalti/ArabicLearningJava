@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.MaintenantFragment">
+    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.ChapitreUnFragment">
 
     <RelativeLayout
         android:id="@+id/RelativeLayout01"
@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:id="@+id/activity_maintenant_pdfView" />
+                android:id="@+id/activity_chapitre_un_pdfView" />
 
         </LinearLayout>
 

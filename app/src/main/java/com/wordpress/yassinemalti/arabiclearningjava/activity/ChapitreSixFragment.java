@@ -15,7 +15,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
-public class LiensFragment extends Fragment {
+public class ChapitreSixFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,12 +27,12 @@ public class LiensFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public LiensFragment() {
+    public ChapitreSixFragment() {
         // Required empty public constructor
     }
 
-    public static LiensFragment newInstance(String param1, String param2) {
-        LiensFragment fragment = new LiensFragment();
+    public static ChapitreSixFragment newInstance(String param1, String param2) {
+        ChapitreSixFragment fragment = new ChapitreSixFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -53,21 +53,10 @@ public class LiensFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_liens, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_chapitre_six, container, false);
         NativeExpressAdView adBanner_liens = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_liens);
         AdRequest request_liens = new AdRequest.Builder().build();
         adBanner_liens.loadAd(request_liens);
-
-
-        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_liens_webview);
-        myWebView.loadUrl("http://m.kooora.com/?n=0&o=v");
-
-        // Enable Javascript
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        // Force links and redirects to open in the WebView instead of in a browser
-        myWebView.setWebViewClient(new WebViewClient());
 
         return rootView;
     }

@@ -3,28 +3,32 @@
 
     <group android:id="@+id/groupeprincipal" android:checkableBehavior="single">
         <item
-            android:id="@+id/maintenant"
+            android:id="@+id/un"
             android:icon="@drawable/un"
             android:title="مباريات الآن" />
         <item
-            android:id="@+id/aujourdhui"
+            android:id="@+id/deux"
             android:icon="@drawable/deux"
             android:title="مباريات اليوم" />
         <item
-            android:id="@+id/demain"
+            android:id="@+id/trois"
             android:icon="@drawable/trois"
             android:title="مباريات الغد" />
         <item
-            android:id="@+id/hier"
+            android:id="@+id/quatre"
             android:icon="@drawable/quatre"
             android:title="مباريات أمس" />
         <item
-            android:id="@+id/actualites"
+            android:id="@+id/cinq"
             android:icon="@drawable/cinq"
             android:title="أخبار الرياضة" />
         <item
-            android:id="@+id/liens"
+            android:id="@+id/six"
             android:icon="@drawable/six"
+            android:title="روابط اليوم" />
+        <item
+            android:id="@+id/sept"
+            android:icon="@drawable/sept"
             android:title="روابط اليوم" />
     </group>
 

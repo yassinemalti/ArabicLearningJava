@@ -1,9 +1,7 @@
 package com.wordpress.yassinemalti.arabiclearningjava.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,11 +15,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
-public class AjourdhuiFragment extends Fragment {
-
-    public WebView myWebView;
-    ProgressDialog progressDialog;
-
+public class ChapitreTroisFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,12 +27,12 @@ public class AjourdhuiFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public AjourdhuiFragment() {
+    public ChapitreTroisFragment() {
         // Required empty public constructor
     }
 
-    public static AjourdhuiFragment newInstance(String param1, String param2) {
-        AjourdhuiFragment fragment = new AjourdhuiFragment();
+    public static ChapitreTroisFragment newInstance(String param1, String param2) {
+        ChapitreTroisFragment fragment = new ChapitreTroisFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,15 +53,24 @@ public class AjourdhuiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_aujourdhui, container, false);
-        NativeExpressAdView adBanner_aujourdhui = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_aujourdhui);
-        AdRequest request_aujourdhui = new AdRequest.Builder().build();
-        adBanner_aujourdhui.loadAd(request_aujourdhui);
-        myWebView = (WebView) rootView.findViewById(R.id.activity_aujourdhui_webview);
+        View rootView = inflater.inflate(R.layout.fragment_chapitre_trois, container, false);
+        NativeExpressAdView adBanner_demain = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_demain);
+        AdRequest request_demain = new AdRequest.Builder().build();
+        adBanner_demain.loadAd(request_demain);
+
+        WebView myWebView = (WebView) rootView.findViewById(R.id.activity_demain_webview);
+        myWebView.loadUrl("http://m.kooora.com/?region=-4");
+
+        // Enable Javascript
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        // Force links and redirects to open in the WebView instead of in a browser
+        myWebView.setWebViewClient(new WebViewClient());
+
         return rootView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -95,5 +98,4 @@ public class AjourdhuiFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 }

@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,32 +13,22 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
-import com.wordpress.yassinemalti.arabiclearningjava.BuildConfig;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PrincipaleActivity extends AppCompatActivity
         implements  NavigationView.OnNavigationItemSelectedListener,
-                    MaintenantFragment.OnFragmentInteractionListener,
-                    AjourdhuiFragment.OnFragmentInteractionListener,
-                    DemainFragment.OnFragmentInteractionListener,
-                    HierFragment.OnFragmentInteractionListener,
-                    ActualitesFragment.OnFragmentInteractionListener,
-                    LiensFragment.OnFragmentInteractionListener,
+                    ChapitreUnFragment.OnFragmentInteractionListener,
+                    ChapitreDeuxFragment.OnFragmentInteractionListener,
+                    ChapitreTroisFragment.OnFragmentInteractionListener,
+                    ChapitreQuatreFragment.OnFragmentInteractionListener,
+                    ChapitreCinqFragment.OnFragmentInteractionListener,
+                    ChapitreSixFragment.OnFragmentInteractionListener,
+                    ChapitreSeptFragment.OnFragmentInteractionListener,
                     AproposFragment.OnFragmentInteractionListener{
 
     private static final String TAG = "PrincipaleActivity";
@@ -66,8 +55,8 @@ public class PrincipaleActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.setCheckedItem(R.id.maintenant);
-        displayView(R.id.maintenant);
+        navigationView.setCheckedItem(R.id.un);
+        displayView(R.id.un);
 
         }
 
@@ -79,8 +68,8 @@ public class PrincipaleActivity extends AppCompatActivity
         }
         if (!viewIsAtHome) {
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.setCheckedItem(R.id.maintenant);
-            displayView(R.id.maintenant);
+            navigationView.setCheckedItem(R.id.un);
+            displayView(R.id.un);
         } else {
             if (doubleBackToExitPressedOnce){
                 moveTaskToBack(true);
@@ -122,33 +111,38 @@ public class PrincipaleActivity extends AppCompatActivity
         currentViewID = viewId;
 
         switch (viewId) {
-            case R.id.maintenant:
-                fragment = new MaintenantFragment();
+            case R.id.un:
+                fragment = new ChapitreUnFragment();
                 title  = "مباريات الآن";
                 viewIsAtHome = true;
                 break;
-            case R.id.aujourdhui:
-                fragment = new AjourdhuiFragment();
+            case R.id.deux:
+                fragment = new ChapitreDeuxFragment();
                 title  = "مباريات اليوم";
                 viewIsAtHome = false;
                 break;
-            case R.id.demain:
-                fragment = new DemainFragment();
+            case R.id.trois:
+                fragment = new ChapitreTroisFragment();
                 title  = "مباريات الغد";
                 viewIsAtHome = false;
                 break;
-            case R.id.hier:
-                fragment = new HierFragment();
+            case R.id.quatre:
+                fragment = new ChapitreQuatreFragment();
                 title  = "مباريات أمس";
                 viewIsAtHome = false;
                 break;
-            case R.id.actualites:
-                fragment = new ActualitesFragment();
+            case R.id.cinq:
+                fragment = new ChapitreCinqFragment();
                 title  = "أخبار الرياضة";
                 viewIsAtHome = false;
                 break;
-            case R.id.liens:
-                fragment = new LiensFragment();
+            case R.id.six:
+                fragment = new ChapitreSixFragment();
+                title  = "روابط اليوم";
+                viewIsAtHome = false;
+                break;
+            case R.id.sept:
+                fragment = new ChapitreSeptFragment();
                 title  = "روابط اليوم";
                 viewIsAtHome = false;
                 break;

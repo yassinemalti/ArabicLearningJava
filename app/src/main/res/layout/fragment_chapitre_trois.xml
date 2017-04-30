@@ -1,10 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.HierFragment">
+    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.ChapitreTroisFragment">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"
@@ -21,12 +21,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <WebView
+                <com.github.barteksc.pdfviewer.PDFView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:id="@+id/activity_hier_webview" />
+                    android:id="@+id/activity_chapitre_trois_pdfView" />
 
             </LinearLayout>
 
@@ -43,10 +43,10 @@
         android:layout_gravity="bottom|center_horizontal">
 
         <com.google.android.gms.ads.NativeExpressAdView
-            android:id="@+id/adBanner_hier"
+            android:id="@+id/adBanner_demain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            ads:adUnitId="ca-app-pub-2326345806005611/5998490082"
+            ads:adUnitId="ca-app-pub-2326345806005611/4521756887"
             ads:adSize="280x70"/>
     </LinearLayout>
 

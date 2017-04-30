@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.ActualitesFragment">
+    tools:context="com.wordpress.yassinemalti.arabiclearningjava.activity.ChapitreCinqFragment">
 
     <ScrollView
         android:id="@+id/ScrollView01"
@@ -21,12 +21,12 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <WebView
+                <com.github.barteksc.pdfviewer.PDFView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:id="@+id/activity_actualites_webview" />
+                    android:id="@+id/activity_chapitre_cinq_pdfView" />
 
             </LinearLayout>
 
