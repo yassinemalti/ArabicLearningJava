@@ -41,7 +41,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String Title = getString(R.string.app_name);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.soccerballnotification)
+                .setSmallIcon(R.mipmap.arabiclearningjava)
                 .setContentTitle(Title)
                 .setContentText(shortMessageBody)
                 .setAutoCancel(true)

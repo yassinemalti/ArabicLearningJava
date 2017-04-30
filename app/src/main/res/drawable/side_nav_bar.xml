@@ -4,7 +4,7 @@
     <item>
         <bitmap
             android:gravity="center|bottom|clip_vertical"
-            android:src="@drawable/stadiumbg"
+            android:src="@drawable/bg"
             android:scaleType="centerCrop"/>
     </item>
 

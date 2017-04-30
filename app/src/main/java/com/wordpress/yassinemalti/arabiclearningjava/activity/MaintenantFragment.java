@@ -13,15 +13,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.NativeExpressAdView;
 import com.wordpress.yassinemalti.arabiclearningjava.R;
 
 public class MaintenantFragment extends Fragment {
 
+    PDFView pdfView;
     private static final String TAG = "MaintenantFragment";
-    public WebView myWebView;
-    ProgressDialog progressDialog;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -62,8 +63,8 @@ public class MaintenantFragment extends Fragment {
         NativeExpressAdView adBanner_maintenant = (NativeExpressAdView) rootView.findViewById(R.id.adBanner_maintenant);
         AdRequest request_maintenant = new AdRequest.Builder().build();
         adBanner_maintenant.loadAd(request_maintenant);
-        myWebView = (WebView) rootView.findViewById(R.id.activity_maintenant_webview);
-        new LoadPage().execute();
+        pdfView = (PDFView) rootView.findViewById(R.id.activity_maintenant_pdfView);
+        pdfView.fromAsset("MyPDF.pdf").load();
         return rootView;
     }
 
@@ -93,36 +94,6 @@ public class MaintenantFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
-    }
-
-    private class LoadPage extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("جاري التحديث...");
-            progressDialog.setIndeterminate(false);
-            progressDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-
-            String maintenant_page_url = PrincipaleActivity.getmaintenant_page_url();
-            myWebView.loadUrl(maintenant_page_url);
-            WebSettings webSettings = myWebView.getSettings();
-            webSettings.setJavaScriptEnabled(true);
-            myWebView.setWebViewClient(new WebViewClient());
-            progressDialog.dismiss();
-
-        }
     }
 
 }
