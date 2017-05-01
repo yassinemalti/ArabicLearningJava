@@ -59,7 +59,9 @@ public class ChapitreUnFragment extends Fragment {
         adBanner_chapitre_un.loadAd(request_chapitre_un);
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_un_pdfView);
-        pdfView.fromAsset("MyPDF.pdf").load();
+        pdfView.fromAsset("MyPDF.pdf")
+                .pages(1)
+                .load();
 
         return rootView;
     }

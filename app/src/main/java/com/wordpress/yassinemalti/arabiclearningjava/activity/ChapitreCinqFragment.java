@@ -61,7 +61,9 @@ public class ChapitreCinqFragment extends Fragment {
         adBanner_chapitre_cinq.loadAd(request_chapitre_cinq);
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_cinq_pdfView);
-        pdfView.fromAsset("MyPDF.pdf").load();
+        pdfView.fromAsset("MyPDF.pdf")
+                .pages(5)
+                .load();
 
         return rootView;
     }
