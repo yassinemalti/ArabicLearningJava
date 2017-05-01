@@ -60,7 +60,7 @@ public class ChapitreUnFragment extends Fragment {
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_un_pdfView);
         pdfView.fromAsset("MyPDF.pdf")
-                .pages(1)
+                .pages(51,52)
                 .load();
 
         return rootView;
