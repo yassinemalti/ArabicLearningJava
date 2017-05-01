@@ -79,7 +79,7 @@ public class ChapitreSeptFragment extends Fragment {
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_sept_pdfView);
         pdfView.fromAsset("MyPDF.pdf")
-                .pages(7)
+                .pages(62, 63)
                 .load();
 
         return rootView;

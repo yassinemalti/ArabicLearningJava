@@ -62,7 +62,7 @@ public class ChapitreCinqFragment extends Fragment {
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_cinq_pdfView);
         pdfView.fromAsset("MyPDF.pdf")
-                .pages(5)
+                .pages(58, 59)
                 .load();
 
         return rootView;

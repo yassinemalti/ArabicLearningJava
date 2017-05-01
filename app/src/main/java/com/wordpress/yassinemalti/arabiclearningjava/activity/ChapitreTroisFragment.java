@@ -65,7 +65,7 @@ public class ChapitreTroisFragment extends Fragment {
 
         pdfView = (PDFView) rootView.findViewById(R.id.activity_chapitre_trois_pdfView);
         pdfView.fromAsset("MyPDF.pdf")
-                .pages(3)
+                .pages(54, 55)
                 .load();
 
         return rootView;
